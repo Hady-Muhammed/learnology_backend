@@ -33,6 +33,9 @@ router.get("/getAllPosts", async (req, res) => {
           as: "author",
         },
       },
+      {
+        $sort: {publishedAt: 1}
+      }
     ]);
     return res.send(posts);
   } catch (error) {

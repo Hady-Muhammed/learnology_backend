@@ -14,6 +14,9 @@ router.get("/getAllNotifications/:studentID", async (req, res) => {
         },
       },
       {
+        $sort: {happenedAt: -1}
+      },
+      {
         $lookup: {
           from: "students",
           localField: "sentBy",
