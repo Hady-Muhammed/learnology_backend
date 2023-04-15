@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Course } = require("../models/courseSchema");
 const { Teacher } = require("../models/teacherSchema");
+const { ObjectId } = require("mongodb");
 
 // publishCourse APIs
 router.post("/publishCourse", async (req, res) => {
@@ -74,7 +75,7 @@ router.post("/getCoursesByIds", async (req, res) => {
 router.get("/getCourse/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const course = await Course.findOne({ _id: id });
+    const course = await Course.findById(id).populate('sections')
     return res.send(course);
   } catch (error) {
     return res.send({ error });

@@ -30,6 +30,7 @@ const notificationsRoutes = require("./routes/notifications");
 const friendRequestsRoutes = require("./routes/friendsRequests");
 const emailsRoutes = require("./routes/emails");
 const inboxesRoutes = require("./routes/inboxes");
+const sectionsRoutes = require("./routes/sections");
 
 mongoose.set("strictQuery", true);
 
@@ -53,6 +54,7 @@ app.use("/api/notifications", notificationsRoutes);
 app.use("/api/frequests", friendRequestsRoutes);
 app.use("/api/emails", emailsRoutes);
 app.use("/api/inboxes", inboxesRoutes);
+app.use("/api/sections", sectionsRoutes);
 
 const port = process.env.PORT || 1234;
 

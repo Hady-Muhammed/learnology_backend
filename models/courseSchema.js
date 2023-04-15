@@ -54,7 +54,11 @@ const courseSchema = new Schema({
     type: Array,
     required: true
   },
-  WhatYouWillLearn: [String]
+  WhatYouWillLearn: [String],
+  sections: [{
+    type: Schema.Types.ObjectId,
+    ref: "Section"
+  }]
 });
 
 const Course = mongoose.model("Course", courseSchema, 'courses');
