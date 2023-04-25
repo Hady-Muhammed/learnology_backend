@@ -56,7 +56,7 @@ const teacherSchema = new Schema({
   },
 });
 
-teacherSchema.methods.generateAuthToken = (email,password) => {  const token = jwt.sign({ email , password }, process.env.JWTPRIVATEKEY, {
+teacherSchema.methods.generateAuthToken = (email,password) => {  const token = jwt.sign({ email , password , role: "teacher"}, process.env.JWTPRIVATEKEY, {
     expiresIn: "7d",
 });
     return token;
