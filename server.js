@@ -12,6 +12,10 @@ const io = require("socket.io")(http, {
   },
 });
 
+app.use(cors({
+  origin: "*"
+}))
+
 const connection = require("./db");
 const mongoose = require("mongoose");
 
